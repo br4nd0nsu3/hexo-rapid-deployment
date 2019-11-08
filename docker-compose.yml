@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx:
+    restart: 'always'
+    build: '.'
+    ports:
+      - '40022:22'
+      - '40080:80'
+      # - '443:443'
+    volumes:
+      # 日志文件
+      - './log:/var/log/nginx/'
+      # nginx配置文件
+      - './conf:/etc/nginx/conf.d'
+    commonds: service ssh start
+      
